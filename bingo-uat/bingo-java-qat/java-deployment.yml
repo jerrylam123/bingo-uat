@@ -12,16 +12,14 @@ spec:
     metadata:
       labels:
         app: bingo-java
-
       annotations:
         instrumentation.opentelemetry.io/inject-nodejs: 'false'
         instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/java-instrumentation"
         sidecar.opentelemetry.io/inject: 'true'
-
     spec:
       containers:
       - name: bingo-java
-        image: 432947219884.dkr.ecr.ap-southeast-1.amazonaws.com/bingo-qat-java:11.0
+        image: 432947219884.dkr.ecr.ap-southeast-1.amazonaws.com/bingo-qat-java:19
         ports:
         - containerPort: 9090
         volumeMounts:
@@ -32,4 +30,6 @@ spec:
           requests:
             memory: "4Gi"
             cpu: "1"
-            
+        env:
+        - name: TZ
+          value: "Asia/Singapore" # Change this to your desired timezone
