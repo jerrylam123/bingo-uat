@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'java-services'
+  namespace: argocd
+spec:
+  destination:
+    namespace: 'myapp'
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 'x-ray'
+    repoURL: 'https://jerrylam123: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@github.com/jerrylam123/bingo-uat.git'
+    targetRevision: HEAD
+  project: 'default'
+
+  syncPolicy:
+    syncOptions:
+    - Createnamespace=true
+
+    automated:
+      selfHeal : true
+      prune: true
