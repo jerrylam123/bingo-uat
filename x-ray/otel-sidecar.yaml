@@ -26,8 +26,4 @@ spec:
           receivers: [otlp]
           processors: []
           exporters: [otlphttp]
-      #  metrics: # This is the new metrics pipeline
-      #    receivers: [otlp]
-      #    processors: []
-      #    exporters: [otlphttp]
 
