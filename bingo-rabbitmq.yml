@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'rabbitmq-services'
+  namespace: argocd
+spec:
+  destination:
+    namespace: 'myapp'
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 'bingo-rabbitmq-uat'
+    repoURL: 'https://jerrylam123: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@github.com/jerrylam123/bingo-uat.git'
+    targetRevision: HEAD
+  project: 'default'
+
+  syncPolicy:
+    syncOptions:
+    - Createnamespace=true
+
+    automated:
+      selfHeal : true
+      prune: true
