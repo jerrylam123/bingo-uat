@@ -4,7 +4,7 @@ metadata:
   name: bingo-java
   namespace: bingo
 spec:
-  replicas: 1
+  replicas: 50
   selector:
     matchLabels:
       app: bingo-java
